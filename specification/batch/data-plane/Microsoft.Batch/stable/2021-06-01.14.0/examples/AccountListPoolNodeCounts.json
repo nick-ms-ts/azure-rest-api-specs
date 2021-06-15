@@ -1,7 +1,7 @@
 {
   "parameters": {
     "batchUrl": "account.region.batch.azure.com",
-    "api-version": "2020-09-01.12.0",
+    "api-version": "2021-06-01.14.0",
     "client-request-id": "00000000-0000-0000-0000-000000000000",
     "ocp-date": "Fri, 17 Feb 2017 00:00:00 GMT"
   },
@@ -27,7 +27,7 @@
               "waitingForStartTask": 0,
               "total": 0
             },
-            "lowPriority": {
+            "spot": {
               "creating": 0,
               "idle": 0,
               "leavingPool": 0,
@@ -62,7 +62,7 @@
               "waitingForStartTask": 0,
               "total": 4
             },
-            "lowPriority": {
+            "spot": {
               "creating": 0,
               "idle": 0,
               "leavingPool": 0,
@@ -97,7 +97,7 @@
               "waitingForStartTask": 0,
               "total": 9
             },
-            "lowPriority": {
+            "spot": {
               "creating": 7,
               "idle": 0,
               "leavingPool": 0,
