@@ -27,7 +27,7 @@
               "waitingForStartTask": 0,
               "total": 0
             },
-            "spot": {
+            "lowPriority": {
               "creating": 0,
               "idle": 0,
               "leavingPool": 0,
@@ -62,7 +62,7 @@
               "waitingForStartTask": 0,
               "total": 4
             },
-            "spot": {
+            "lowPriority": {
               "creating": 0,
               "idle": 0,
               "leavingPool": 0,
@@ -97,7 +97,7 @@
               "waitingForStartTask": 0,
               "total": 9
             },
-            "spot": {
+            "lowPriority": {
               "creating": 7,
               "idle": 0,
               "leavingPool": 0,

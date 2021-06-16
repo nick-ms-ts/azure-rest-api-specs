@@ -7,7 +7,7 @@
     "ocp-date": "Fri, 17 Feb 2017 00:00:00 GMT",
     "poolResizeParameter": {
       "targetDedicatedNodes": 1,
-      "targetSpotNodes": 0
+      "targetLowPriorityNodes": 0
     }
   },
   "responses": {

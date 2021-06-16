@@ -21,10 +21,9 @@
         "vmSize": "standard_a1",
         "resizeTimeout": "PT15M",
         "currentDedicatedNodes": 0,
-        "currentSpotNodes": 0,
-        "maxSpotPrice": -1,
+        "currentLowPriorityNodes": 0,
         "targetDedicatedNodes": 0,
-        "targetSpotNodes": 0,
+        "targetLowPriorityNodes": 0,
         "enableAutoScale": false,
         "enableInterNodeCommunication": false,
         "startTask": {
@@ -51,14 +50,14 @@
           },
           "nodeAgentSKUId": "batch.node.ubuntu 20.04",
           "extensions": [
-             {
-                "name": "batchextension1",
-                "type": "SecurityMonitoringForLinux",
-                "publisher": "Microsoft.Azure.Security.Monitoring",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": "{\"settingsKey\":\"settingsValue\"}"
-             }
+            {
+              "name": "batchextension1",
+              "type": "SecurityMonitoringForLinux",
+              "publisher": "Microsoft.Azure.Security.Monitoring",
+              "typeHandlerVersion": "1.0",
+              "autoUpgradeMinorVersion": true,
+              "settings": "{\"settingsKey\":\"settingsValue\"}"
+            }
           ]
         }
       }

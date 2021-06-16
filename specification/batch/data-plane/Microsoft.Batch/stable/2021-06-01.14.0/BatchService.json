@@ -6094,9 +6094,6 @@
         "x-ms-examples": {
           "Pool list": {
             "$ref": "./examples/PoolList_Basic.json"
-          },
-          "Get a VirtualMachineConfiguration pool with extensions": {
-            "$ref": "./examples/PoolGet_VirtualMachineConfigurationWithExtensions.json"
           }
         },
         "summary": "Lists all of the Pools in the specified Account.",
@@ -6526,6 +6523,9 @@
         "x-ms-examples": {
           "Pool get": {
             "$ref": "./examples/PoolGet_Basic.json"
+          },
+          "Get a VirtualMachineConfiguration pool with extensions": {
+            "$ref": "./examples/PoolGet_VirtualMachineConfigurationWithExtensions.json"
           }
         },
         "description": "Gets information about the specified Pool.",
@@ -12153,9 +12153,9 @@
           "description": "If this property is set, the Batch service provides the Task with an authentication token which can be used to authenticate Batch service operations without requiring an Account access key. The token is provided via the AZ_BATCH_AUTHENTICATION_TOKEN environment variable. The operations that the Task can carry out using the token depend on the settings. For example, a Task can request Job permissions in order to add other Tasks to the Job, or check the status of the Job or of other Tasks under the Job.",
           "$ref": "#/definitions/AuthenticationTokenSettings"
         },
-        "allowSpotNode": {
+        "allowLowPriorityNode": {
           "type": "boolean",
-          "title": "Whether the Job Manager Task may run on a Spot Compute Node.",
+          "title": "Whether the Job Manager Task may run on a low-priority Compute Node.",
           "description": "The default value is true."
         }
       },
@@ -12509,18 +12509,18 @@
           "type": "integer",
           "format": "int32",
           "title": "The desired number of dedicated Compute Nodes in the Pool.",
-          "description": "This property must not be specified if enableAutoScale is set to true. If enableAutoScale is set to false, then you must set either targetDedicatedNodes, targetSpotNodes, or both."
+          "description": "This property must not be specified if enableAutoScale is set to true. If enableAutoScale is set to false, then you must set either targetDedicatedNodes, targetLowPriorityNodes, or both."
         },
-        "targetSpotNodes": {
+        "targetLowPriorityNodes": {
           "type": "integer",
           "format": "int32",
-          "title": "The desired number of Spot Compute Nodes in the Pool.",
-          "description": "This property must not be specified if enableAutoScale is set to true. If enableAutoScale is set to false, then you must set either targetDedicatedNodes, targetSpotNodes, or both."
+          "title": "The desired number of low-priority Compute Nodes in the Pool.",
+          "description": "This property must not be specified if enableAutoScale is set to true. If enableAutoScale is set to false, then you must set either targetDedicatedNodes, targetLowPriorityNodes, or both."
         },
         "enableAutoScale": {
           "type": "boolean",
           "title": "Whether the Pool size should automatically adjust over time.",
-          "description": "If false, at least one of targetDedicatedNodes and targetSpotNodes must be specified. If true, the autoScaleFormula element is required. The Pool automatically resizes according to the formula. The default value is false."
+          "description": "If false, at least one of targetDedicatedNodes and targetLowPriorityNodes must be specified. If true, the autoScaleFormula element is required. The Pool automatically resizes according to the formula. The default value is false."
         },
         "autoScaleFormula": {
           "type": "string",
@@ -12592,12 +12592,6 @@
           },
           "title": "A list of file systems to mount on each node in the pool.",
           "description": "This supports Azure Files, NFS, CIFS/SMB, and Blobfuse."
-        },
-        "maxSpotPrice": {
-          "type": "number",
-          "format": "double",
-          "title": "The maximum price you are willing to pay per hour for a Spot VM, expressed in US dollars",
-          "description": "This price gets compared against the current Azure Spot price for the Pool's VM size. If the Azure Spot price is higher than the maxSpotPrice, then existing Spot VMs in the Pool will be evicted and new Spot VMs will fail to allocate. There is a special value of -1 which ensures that Spot VMs will never be preempted for price reasons and that Spot VMs will always be billed at the current on-demand price. Applicable only for VirtualMachineConfiguration pools. Default value is -1 if not provided."
         }
       },
       "required": [
@@ -14475,26 +14469,26 @@
           "format": "int32",
           "title": "The number of dedicated Compute Nodes currently in the Pool."
         },
-        "currentSpotNodes": {
+        "currentLowPriorityNodes": {
           "type": "integer",
           "format": "int32",
-          "title": "The number of Spot Compute Nodes currently in the Pool.",
-          "description": "Spot Compute Nodes which have been preempted are included in this count."
+          "title": "The number of low-priority Compute Nodes currently in the Pool.",
+          "description": "low-priority Compute Nodes which have been preempted are included in this count."
         },
         "targetDedicatedNodes": {
           "type": "integer",
           "format": "int32",
           "title": "The desired number of dedicated Compute Nodes in the Pool."
         },
-        "targetSpotNodes": {
+        "targetLowPriorityNodes": {
           "type": "integer",
           "format": "int32",
-          "title": "The desired number of Spot Compute Nodes in the Pool."
+          "title": "The desired number of low-priority Compute Nodes in the Pool."
         },
         "enableAutoScale": {
           "type": "boolean",
           "title": "Whether the Pool size should automatically adjust over time.",
-          "description": "If false, at least one of targetDedicatedNodes and targetSpotNodes must be specified. If true, the autoScaleFormula property is required and the Pool automatically resizes according to the formula. The default value is false."
+          "description": "If false, at least one of targetDedicatedNodes and targetLowPriorityNodes must be specified. If true, the autoScaleFormula property is required and the Pool automatically resizes according to the formula. The default value is false."
         },
         "autoScaleFormula": {
           "type": "string",
@@ -14587,12 +14581,6 @@
           "title": "A list of file systems to mount on each node in the pool.",
           "description": "This supports Azure Files, NFS, CIFS/SMB, and Blobfuse."
         },
-        "maxSpotPrice": {
-          "type": "number",
-          "format": "double",
-          "title": "The maximum price you are willing to pay per hour for a Spot VM, expressed in US dollars",
-          "description": "This price gets compared against the current Azure Spot price for the Pool's VM size. If the Azure Spot price is higher than the maxSpotPrice, then existing Spot VMs in the Pool will be evicted and new Spot VMs will fail to allocate. There is a special value of -1 which ensures that Spot VMs will never be preempted for price reasons and that the on-demand price will always apply. Applicable only for VirtualMachineConfiguration pools. Default value is -1 if not provided."
-        },
         "identity": {
           "title": "The identity of the Batch pool, if configured.",
           "description": "The list of user identities associated with the Batch pool. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
@@ -14639,18 +14627,18 @@
           "type": "integer",
           "format": "int32",
           "title": "The desired number of dedicated Compute Nodes in the Pool.",
-          "description": "This property must not be specified if enableAutoScale is set to true. If enableAutoScale is set to false, then you must set either targetDedicatedNodes, targetSpotNodes, or both."
+          "description": "This property must not be specified if enableAutoScale is set to true. If enableAutoScale is set to false, then you must set either targetDedicatedNodes, targetLowPriorityNodes, or both."
         },
-        "targetSpotNodes": {
+        "targetLowPriorityNodes": {
           "type": "integer",
           "format": "int32",
-          "title": "The desired number of Spot Compute Nodes in the Pool.",
-          "description": "This property must not be specified if enableAutoScale is set to true. If enableAutoScale is set to false, then you must set either targetDedicatedNodes, targetSpotNodes, or both."
+          "title": "The desired number of low-priority Compute Nodes in the Pool.",
+          "description": "This property must not be specified if enableAutoScale is set to true. If enableAutoScale is set to false, then you must set either targetDedicatedNodes, targetLowPriorityNodes, or both."
         },
         "enableAutoScale": {
           "type": "boolean",
           "title": "Whether the Pool size should automatically adjust over time.",
-          "description": "If false, at least one of targetDedicatedNodes and targetSpotNodes must be specified. If true, the autoScaleFormula property is required and the Pool automatically resizes according to the formula. The default value is false."
+          "description": "If false, at least one of targetDedicatedNodes and targetLowPriorityNodes must be specified. If true, the autoScaleFormula property is required and the Pool automatically resizes according to the formula. The default value is false."
         },
         "autoScaleFormula": {
           "type": "string",
@@ -14734,12 +14722,6 @@
           },
           "title": "Mount storage using specified file system for the entire lifetime of the pool.",
           "description": "Mount the storage using Azure fileshare, NFS, CIFS or Blobfuse based file system."
-        },
-        "maxSpotPrice": {
-          "type": "number",
-          "format": "double",
-          "title": "The maximum price you are willing to pay per hour for a Spot VM, expressed in US dollars",
-          "description": "This price gets compared against the current Azure Spot price for the Pool's VM size. If the Azure Spot price is higher than the maxSpotPrice, then existing Spot VMs in the Pool will be evicted and new Spot VMs will fail to allocate. There is a special value of -1 which ensures that Spot VMs will never be preempted for price reasons and that the on-demand price will always apply. Applicable only for VirtualMachineConfiguration pools. Default value is -1 if not provided."
         }
       },
       "required": [
@@ -16308,10 +16290,10 @@
           "format": "int32",
           "title": "The desired number of dedicated Compute Nodes in the Pool."
         },
-        "targetSpotNodes": {
+        "targetLowPriorityNodes": {
           "type": "integer",
           "format": "int32",
-          "title": "The desired number of Spot Compute Nodes in the Pool."
+          "title": "The desired number of low-priority Compute Nodes in the Pool."
         },
         "resizeTimeout": {
           "type": "string",
@@ -17163,9 +17145,9 @@
           "$ref": "#/definitions/NodeCounts",
           "title": "The number of dedicated Compute Nodes in each state."
         },
-        "spot": {
+        "lowPriority": {
           "$ref": "#/definitions/NodeCounts",
-          "title": "The number of spot Compute Nodes in each state."
+          "title": "The number of low-priority Compute Nodes in each state."
         }
       },
       "required": [

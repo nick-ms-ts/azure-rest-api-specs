@@ -22,9 +22,9 @@
             "vmSize": "small",
             "resizeTimeout": "PT15M",
             "currentDedicatedNodes": 3,
-            "currentSpotNodes": 0,
+            "currentLowPriorityNodes": 0,
             "targetDedicatedNodes": 3,
-            "targetSpotNodes": 0,
+            "targetLowPriorityNodes": 0,
             "enableAutoScale": false,
             "enableInterNodeCommunication": false,
             "startTask": {

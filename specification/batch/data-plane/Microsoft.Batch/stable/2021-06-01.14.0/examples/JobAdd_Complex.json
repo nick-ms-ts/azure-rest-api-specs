@@ -57,7 +57,7 @@
             },
             "resizeTimeout": "PT15M",
             "targetDedicatedNodes": 3,
-            "targetSpotNodes": 0,
+            "targetLowPriorityNodes": 0,
             "taskSlotsPerNode": 2,
             "taskSchedulingPolicy": {
               "nodeFillType": "spread"
