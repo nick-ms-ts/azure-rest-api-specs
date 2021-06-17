@@ -4,7 +4,7 @@
     "resourceGroupName": "default-azurebatch-japaneast",
     "accountName": "sampleacct",
     "poolName": "testpool",
-    "api-version": "2021-01-01",
+    "api-version": "2021-06-01",
     "parameters": {
       "properties": {
         "vmSize": "STANDARD_D4",
@@ -43,6 +43,11 @@
             },
             "nodePlacementConfiguration": {
               "policy": "Zonal"
+            },
+            "osDisk": {
+              "ephemeralOSDiskSettings": {
+                "placement": "CacheDisk"
+              }
             }
           }
         },
@@ -83,7 +88,8 @@
             "formula": "$TargetDedicatedNodes=1",
             "evaluationInterval": "PT5M"
           }
-        }
+        },
+        "maxSpotPrice": -1
       }
     }
   },
@@ -187,7 +193,8 @@
             }
           },
           "currentDedicatedNodes": 0,
-          "currentLowPriorityNodes": 0
+          "currentSpotNodes": 0,
+          "maxSpotPrice": -1
         }
       }
     }

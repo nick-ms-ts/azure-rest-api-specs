@@ -4,7 +4,7 @@
     "resourceGroupName": "default-azurebatch-japaneast",
     "accountName": "sampleacct",
     "poolName": "testpool",
-    "api-version": "2021-01-01",
+    "api-version": "2021-06-01",
     "parameters": {
       "properties": {
         "displayName": "my-pool-name",
@@ -33,7 +33,7 @@
         "scaleSettings": {
           "fixedScale": {
             "targetDedicatedNodes": 6,
-            "targetLowPriorityNodes": 28,
+            "targetSpotNodes": 28,
             "resizeTimeout": "PT8M",
             "nodeDeallocationOption": "TaskCompletion"
           }
@@ -139,7 +139,7 @@
           "scaleSettings": {
             "fixedScale": {
               "targetDedicatedNodes": 6,
-              "targetLowPriorityNodes": 28,
+              "targetSpotNodes": 28,
               "resizeTimeout": "PT8M",
               "nodeDeallocationOption": "TaskCompletion"
             }
@@ -219,7 +219,7 @@
             "app-license1"
           ],
           "currentDedicatedNodes": 0,
-          "currentLowPriorityNodes": 0
+          "currentSpotNodes": 0
         }
       }
     }
