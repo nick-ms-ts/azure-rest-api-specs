@@ -65,11 +65,11 @@
           "scaleSettings": {
             "fixedScale": {
               "targetDedicatedNodes": 0,
-              "targetSpotNodes": 0
+              "targetLowPriorityNodes": 0
             }
           },
           "currentDedicatedNodes": 0,
-          "currentSpotNodes": 0
+          "currentLowPriorityNodes": 0
         }
       }
     }

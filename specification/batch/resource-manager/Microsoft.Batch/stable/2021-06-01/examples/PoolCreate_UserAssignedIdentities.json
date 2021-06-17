@@ -76,8 +76,7 @@
             }
           },
           "currentDedicatedNodes": 0,
-          "currentSpotNodes": 0,
-          "maxSpotPrice": -1
+          "currentLowPriorityNodes": 0
         },
         "identity": {
           "type": "UserAssigned",

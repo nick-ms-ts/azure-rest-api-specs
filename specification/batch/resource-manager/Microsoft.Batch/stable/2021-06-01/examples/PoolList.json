@@ -37,7 +37,7 @@
               "scaleSettings": {
                 "fixedScale": {
                   "targetDedicatedNodes": 6,
-                  "targetSpotNodes": 28,
+                  "targetLowPriorityNodes": 28,
                   "resizeTimeout": "PT8M"
                 }
               },
@@ -138,11 +138,11 @@
                 "app-license1"
               ],
               "currentDedicatedNodes": 0,
-              "currentSpotNodes": 0,
+              "currentLowPriorityNodes": 0,
               "resizeOperationStatus": {
                 "startTime": "2017-08-28T10:22:55.9407275Z",
                 "targetDedicatedNodes": 6,
-                "targetSpotNodes": 28,
+                "targetLowPriorityNodes": 28,
                 "nodeDeallocationOption": "TaskCompletion",
                 "resizeTimeout": "PT8M",
                 "errors": [

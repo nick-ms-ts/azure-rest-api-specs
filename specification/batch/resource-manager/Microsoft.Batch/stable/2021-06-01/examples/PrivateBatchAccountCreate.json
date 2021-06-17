@@ -29,7 +29,7 @@
           "provisioningState": "Succeeded",
           "poolAllocationMode": "UserSubscription",
           "dedicatedCoreQuota": 20,
-          "spotCoreQuota": 20,
+          "lowPriorityCoreQuota": 20,
           "poolQuota": 20,
           "activeJobAndJobScheduleQuota": 20,
           "autoStorage": {

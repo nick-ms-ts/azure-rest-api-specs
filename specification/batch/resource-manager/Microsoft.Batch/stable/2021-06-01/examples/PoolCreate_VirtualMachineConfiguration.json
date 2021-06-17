@@ -88,8 +88,7 @@
             "formula": "$TargetDedicatedNodes=1",
             "evaluationInterval": "PT5M"
           }
-        },
-        "maxSpotPrice": -1
+        }
       }
     }
   },
@@ -193,8 +192,7 @@
             }
           },
           "currentDedicatedNodes": 0,
-          "currentSpotNodes": 0,
-          "maxSpotPrice": -1
+          "currentLowPriorityNodes": 0
         }
       }
     }

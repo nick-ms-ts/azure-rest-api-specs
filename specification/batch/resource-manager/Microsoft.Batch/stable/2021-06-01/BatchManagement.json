@@ -2766,12 +2766,12 @@
           "title": "The dedicated core quota for the Batch account.",
           "description": "For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned."
         },
-        "spotCoreQuota": {
+        "lowPriorityCoreQuota": {
           "readOnly": true,
           "x-nullable": true,
           "type": "integer",
           "format": "int32",
-          "title": "The spot core quota for the Batch account.",
+          "title": "The low-priority core quota for the Batch account.",
           "description": "For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned."
         },
         "dedicatedCoreQuotaPerVMFamily": {
@@ -3758,10 +3758,10 @@
           "title": "The number of compute nodes currently in the pool.",
           "readOnly": true
         },
-        "currentSpotNodes": {
+        "currentLowPriorityNodes": {
           "type": "integer",
           "format": "int32",
-          "title": "The number of spot compute nodes currently in the pool.",
+          "title": "The number of low-priority compute nodes currently in the pool.",
           "readOnly": true
         },
         "scaleSettings": {
@@ -3868,12 +3868,6 @@
           },
           "title": "A list of file systems to mount on each node in the pool.",
           "description": "This supports Azure Files, NFS, CIFS/SMB, and Blobfuse."
-        },
-        "maxSpotPrice": {
-          "type": "number",
-          "format": "double",
-          "title": "The maximum price you are willing to pay per hour for a Spot VM, expressed in US dollars",
-          "description": "This price gets compared against the current Azure Spot price for the Pool's VM size. If the Azure Spot price is higher than the maxSpotPrice, then existing Spot VMs in the Pool will be evicted and new Spot VMs will fail to allocate. There is a special value of -1 which ensures that Spot VMs will never be preempted for price reasons and that Spot VMs will always be billed at the current on-demand price. Applicable only for VirtualMachineConfiguration pools. Default value is -1 if not provided."
         }
       },
       "description": "Pool properties."
@@ -3985,13 +3979,13 @@
           "type": "integer",
           "format": "int32",
           "title": "The desired number of dedicated compute nodes in the pool.",
-          "description": "At least one of targetDedicatedNodes, targetSpotNodes must be set."
+          "description": "At least one of targetDedicatedNodes, targetLowPriorityNodes must be set."
         },
-        "targetSpotNodes": {
+        "targetLowPriorityNodes": {
           "type": "integer",
           "format": "int32",
-          "title": "The desired number of spot compute nodes in the pool.",
-          "description": "At least one of targetDedicatedNodes, targetSpotNodes must be set."
+          "title": "The desired number of low-priority compute nodes in the pool.",
+          "description": "At least one of targetDedicatedNodes, targetLowPriorityNodes must be set."
         },
         "nodeDeallocationOption": {
           "title": "Determines what to do with a node and its running task(s) if the pool size is decreasing.",
@@ -5092,10 +5086,10 @@
           "format": "int32",
           "title": "The desired number of dedicated compute nodes in the pool."
         },
-        "targetSpotNodes": {
+        "targetLowPriorityNodes": {
           "type": "integer",
           "format": "int32",
-          "title": "The desired number of spot compute nodes in the pool."
+          "title": "The desired number of low-priority compute nodes in the pool."
         },
         "resizeTimeout": {
           "type": "string",

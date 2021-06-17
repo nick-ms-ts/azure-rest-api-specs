@@ -15,7 +15,7 @@
               "provisioningState": "Succeeded",
               "poolAllocationMode": "BatchService",
               "dedicatedCoreQuota": 20,
-              "spotCoreQuota": 20,
+              "lowPriorityCoreQuota": 20,
               "poolQuota": 20,
               "activeJobAndJobScheduleQuota": 20,
               "autoStorage": {
